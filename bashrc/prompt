@@ -1,0 +1,13 @@
+# Defines a beautiful color prompt, showing git references.
+
+# colors!
+green="\[\033[0;32m\]"
+bgreen="\[\033[1;32m\]"
+bblue="\[\033[1;34m\]"
+reset="\[\033[0m\]"
+
+# '\u' adds the name of the current user to the prompt
+# '\h' hostname up to the first.
+# '\$(__git_ps1)' adds git-related stuff
+# '\w' adds the complete path of the current directory
+export PS1="$bgreen\u@\h$reset:$bblue\w$green\$(__git_ps1) $ $reset"
