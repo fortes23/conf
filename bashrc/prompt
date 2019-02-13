@@ -10,7 +10,7 @@ reset="\[\033[0m\]"
 __svn_ps1() {
 	local revi=$(svn info --show-item revision 2> /dev/null)
 	if [ ! -z "$revi" ]; then
-		if [ "$SVN_PS1_SHOWDIRTYSTATE" == "1" ]; then
+		if [ ! -z "$SVN_PS1_SHOWDIRTYSTATE" ]; then
 			svn st | grep -e '^M' > /dev/null 2>&1
 			local modified=$(echo $? | sed 's/0/*/' | sed 's/1//')
 			 svn st | grep '^A' > /dev/null 2>&1
@@ -19,7 +19,7 @@ __svn_ps1() {
 		else
 			local out="r${revi}"
 		fi
-		if [ $SVN_PS1_SHOWUPSTREAM == "1" ]; then
+		if [ ! -z "$SVN_PS1_SHOWUPSTREAM" ]; then
 			local url=$(svn info --show-item url 2> /dev/null)
 			if [ ! -z "$url" ]; then
 				local rem_rev=$(svn info $url --show-item last-changed-revision 2> /dev/null)
