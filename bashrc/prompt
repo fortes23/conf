@@ -1,15 +1,32 @@
-# Defines a beautiful color prompt, showing git references.
+# Defines a beautiful color prompt, showing git and svn references.
 
 # colors!
 green="\[\033[0;32m\]"
+red="\[\033[0;31m\]"
 bgreen="\[\033[1;32m\]"
 bblue="\[\033[1;34m\]"
 reset="\[\033[0m\]"
 
+__svn_ps1() {
+	local revi=$(svn info --show-item revision 2> /dev/null)
+	if [ ! "$revi" == "" ]; then
+		if [ "$SVN_PS1_SHOWDIRTYSTATE" == "1" ]; then
+			svn st | grep -e '^M' > /dev/null 2>&1
+			local modified=$(echo $? | sed 's/0/*/' | sed 's/1//')
+			 svn st | grep '^A' > /dev/null 2>&1
+			local added=$(echo $? | sed 's/0/+/' | sed 's/1//')
+			echo " (r${revi}${modified}${added})"
+		else
+			echo " (r${revi})"
+		fi
+	fi
+}
+
 # '\u' adds the name of the current user to the prompt
 # '\h' hostname up to the first.
 # '\$(__git_ps1)' adds git-related stuff
+# '\$(__svn_ps1)' adds svn revisions/dirty state
 # '\w' adds the complete path of the current directory
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM="auto"
-export PS1="$bgreen\u@\h$reset:$bblue\w$green\$(__git_ps1) $ $reset"
+export PS1="$bgreen\u@\h$reset:$bblue\w$red\$(__svn_ps1)$green\$(__git_ps1) $ $reset"
