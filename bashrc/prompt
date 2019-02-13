@@ -9,16 +9,31 @@ reset="\[\033[0m\]"
 
 __svn_ps1() {
 	local revi=$(svn info --show-item revision 2> /dev/null)
-	if [ ! "$revi" == "" ]; then
+	if [ ! -z "$revi" ]; then
 		if [ "$SVN_PS1_SHOWDIRTYSTATE" == "1" ]; then
 			svn st | grep -e '^M' > /dev/null 2>&1
 			local modified=$(echo $? | sed 's/0/*/' | sed 's/1//')
 			 svn st | grep '^A' > /dev/null 2>&1
 			local added=$(echo $? | sed 's/0/+/' | sed 's/1//')
-			echo " (r${revi}${modified}${added})"
+			local out="r${revi}${modified}${added}"
 		else
-			echo " (r${revi})"
+			local out="r${revi}"
 		fi
+		if [ $SVN_PS1_SHOWUPSTREAM == "1" ]; then
+			local url=$(svn info --show-item url 2> /dev/null)
+			if [ ! -z "$url" ]; then
+				local rem_rev=$(svn info $url --show-item last-changed-revision 2> /dev/null)
+				local loc_rev=$(svn info --show-item last-changed-revision 2> /dev/null)
+				if [ "$rem_rev" == "$loc_rev" ]; then
+					local out="${out} ="
+				else
+					local out="${out} <"
+				fi
+			fi
+		fi
+	fi
+	if [ ! -z "$out" ]; then
+		echo " (${out})"
 	fi
 }
 
@@ -29,4 +44,5 @@ __svn_ps1() {
 # '\w' adds the complete path of the current directory
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM="auto"
+SVN_PS1_SHOWUPSTREAM=1
 export PS1="$bgreen\u@\h$reset:$bblue\w$red\$(__svn_ps1)$green\$(__git_ps1) $ $reset"
