@@ -1,0 +1,11 @@
+[auth]
+
+[helpers]
+editor-cmd = vim
+diff-cmd = colordiff
+
+[tunnels]
+
+[miscellany]
+
+[working-copy]
