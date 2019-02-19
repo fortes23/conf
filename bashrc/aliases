@@ -1,0 +1,1 @@
+alias svn-difftool="svn di --diff-cmd meld"
