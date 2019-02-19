@@ -1,1 +1,2 @@
 alias svn-difftool="svn di --diff-cmd meld"
+alias diff="diff --color=auto"
