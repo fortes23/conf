@@ -1,3 +1,6 @@
+[user]
+	name = fortes23
+	email = brais.fortes@gmail.com
 [diff]
 	tool = meld
 [core]
@@ -9,7 +12,6 @@
 	ci = commit
 	co = checkout
 	chp = cherry-pick
-	di = diff
 	di = diff
 	lgo = log --oneline --graph
 	res = reset
