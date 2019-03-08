@@ -1,3 +1,4 @@
 alias svn-difftool="svn di --diff-cmd meld"
 alias diff="diff --color=auto"
 alias py="python3"
+alias topdf="lowriter --convert-to pdf"
