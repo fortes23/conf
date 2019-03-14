@@ -16,14 +16,13 @@ fi
 
 # Source git, svn and vim configurations
 if [ -f ~/.gitconfig ] || [ -f ~/.subversion/config ] || [ -f ~/.vimrc ]; then
-	while [ "$ANSWER" != "y" ] && [ "$ANSWER" != "n" ]
-	do
-		echo -n "File ~/.gitconfig or ~/.subversion/config or ~/.vimrc already exist, do you want to remove it?(y/n)"
-		read -n 1 ANSWER
-	done
-	if [ "$ANSWER" != "y" ]; then
-		exit 1
-	fi
+    while [ "$ANSWER" != "y" ] && [ "$ANSWER" != "n" ]; do
+        echo -n "File ~/.gitconfig or ~/.subversion/config or ~/.vimrc already exist, do you want to remove it?(y/n)"
+        read -n 1 ANSWER
+    done
+    if [ "$ANSWER" != "y" ]; then
+        exit 1
+    fi
 fi
 
 ln -sf $DIR/git/gitconfig ~/.gitconfig
