@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Download all attachment from a Redmine ticket/issue in a known folder and 
+Download all attachment from a Redmine ticket/issue in a known folder and
 convert Word documents to PDF.
 """
 
