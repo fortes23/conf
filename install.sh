@@ -6,7 +6,7 @@ DIR=$(readlink -f $DIR_REL)
 # Source bashrc configurations
 if ! grep -q "conf/bashrc" ~/.bashrc; then
     src_txt="# conf definition\n
-         if [ -d ~/conf/bashrc ]; then\n
+         if [ -d $DIR/bashrc ]; then\n
            \tfor f in $DIR/bashrc/*; do\n
              \t\t. \$f\n
            \tdone\n
