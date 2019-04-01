@@ -6,10 +6,11 @@ convert Word documents to PDF.
 """
 
 # Prerequisites: lxml and pyrequests
+import os
+import argparse
+
 from lxml import html
 import requests
-import argparse
-import os
 
 from pyutils.utils import style
 
