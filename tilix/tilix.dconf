@@ -22,5 +22,5 @@ use-theme-colors=false
 bold-color-set=false
 font='Monospace 10'
 scrollback-unlimited=true
-background-color='#000000000000'
+background-color='#2C2C00001D1D'
 background-transparency-percent=0
