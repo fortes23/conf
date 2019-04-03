@@ -14,6 +14,17 @@ if ! grep -q "conf/bashrc" ~/.bashrc; then
     echo -e $src_txt >> ~/.bashrc
 fi
 
+# Config tilix
+dconf load /com/gexperts/Tilix/ < $DIR/tilix/tilix.dconf
+
+if ! grep -q "TILIX_ID" ~/.bashrc && [ -f /etc/profile.d/vte-2.91.sh ]; then
+    src_txt="# Conf tilix\n
+         if [ \$TILIX_ID ] || [ \$VTE_VERSION ]; then\n
+           \tsource /etc/profile.d/vte-2.91.sh\n
+         fi\n"
+    echo -e $src_txt >> ~/.bashrc
+fi
+
 # Source git, svn and vim configurations
 if [ -f ~/.gitconfig ] || [ -f ~/.subversion/config ] || [ -f ~/.vimrc ]; then
     while [ "$ANSWER" != "y" ] && [ "$ANSWER" != "n" ]; do
@@ -28,6 +39,3 @@ fi
 ln -sf $DIR/git/gitconfig ~/.gitconfig
 ln -sf $DIR/svn/svnconfig ~/.subversion/config
 ln -sf $DIR/vim/vimrc ~/.vimrc
-
-# Config tilix
-dconf load /com/gexperts/Tilix/ < $DIR/tilix/tilix.dconf

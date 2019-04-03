@@ -10,15 +10,21 @@ use-theme-colors=false
 bold-color-set=false
 font='Monospace 10'
 scrollback-unlimited=true
+terminal-title='${title}'
 background-color='#2C2C00001D1D'
 background-transparency-percent=0
 
 [/]
 prompt-on-close=true
+use-overlay-scrollbar=false
+sidebar-on-right=false
 terminal-title-style='small'
-use-tabs=false
 theme-variant='dark'
+session-name='${title}'
+use-tabs=true
 enable-wide-handle=false
+app-title='${title}'
+terminal-title-show-when-single=false
 window-style='normal'
 
 [keybindings]
