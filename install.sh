@@ -29,3 +29,5 @@ ln -sf $DIR/git/gitconfig ~/.gitconfig
 ln -sf $DIR/svn/svnconfig ~/.subversion/config
 ln -sf $DIR/vim/vimrc ~/.vimrc
 
+# Config tilix
+dconf load /com/gexperts/Tilix/ < $DIR/tilix/tilix.dconf

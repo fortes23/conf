@@ -1,0 +1,26 @@
+[/]
+window-style='normal'
+enable-wide-handle=false
+theme-variant='dark'
+prompt-on-close=true
+use-tabs=false
+
+[keybindings]
+session-add-right='<Primary><Shift>e'
+session-open='disabled'
+session-add-down='<Primary><Shift>o'
+
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+foreground-color='#F8F8F2'
+visible-name='BF'
+palette=['#272822', '#CCCC00000000', '#A6E22E', '#F4BF75', '#66D9EF', '#AE81FF', '#A1EFE4', '#F8F8F2', '#75715E', '#CCCC00000000', '#A6E22E', '#F4BF75', '#66D9EF', '#AE81FF', '#A1EFE4', '#F9F8F5']
+badge-color-set=false
+use-system-font=false
+cursor-colors-set=false
+highlight-colors-set=false
+use-theme-colors=false
+bold-color-set=false
+font='Monospace 10'
+scrollback-unlimited=true
+background-color='#000000000000'
+background-transparency-percent=0
