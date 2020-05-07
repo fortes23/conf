@@ -22,7 +22,7 @@ __svn_ps1() {
 		if [ ! -z "$SVN_PS1_SHOWUPSTREAM" ]; then
 			local url=$(svn info --show-item url 2> /dev/null)
 			if [ ! -z "$url" ]; then
-				local rem_rev=$(svn info $url --show-item last-changed-revision 2> /dev/null)
+				local rem_rev=$(timeout 0.5 svn info $url --show-item last-changed-revision 2> /dev/null)
 				local loc_rev=$(svn info --show-item last-changed-revision 2> /dev/null)
 				if [ "$rem_rev" == "$loc_rev" ]; then
 					local out="${out} ="
