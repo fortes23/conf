@@ -16,3 +16,5 @@
 	lgo = log --oneline --graph
 	res = reset
 	st = status
+[pull]
+	rebase = true
