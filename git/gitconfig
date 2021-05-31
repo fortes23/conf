@@ -16,5 +16,7 @@
 	lgo = log --oneline --graph
 	res = reset
 	st = status
+	cat = !git archive --remote=$1 $2 $3 | tar -xOf - && :
 [pull]
 	rebase = true
+
