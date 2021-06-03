@@ -16,7 +16,7 @@
 	lgo = log --oneline --graph
 	res = reset
 	st = status
-	cat = !git archive --remote=$1 $2 $3 | tar -xOf - && :
+	cat = !git archive --remote=$1 $2 $3 | tar -xOf - && : // $1=server, $2=branch, $3=file
 [pull]
 	rebase = true
 
