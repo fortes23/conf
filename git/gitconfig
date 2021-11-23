@@ -14,6 +14,7 @@
 	chp = cherry-pick
 	di = diff
 	lgo = log --oneline --graph
+	lgt = log --graph --simplify-by-decoration --pretty=format:'%d' --all
 	res = reset
 	st = status
 	cat = !git archive --remote=$1 $2 $3 | tar -xOf - && : // $1=server, $2=branch, $3=file
