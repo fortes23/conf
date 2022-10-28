@@ -20,6 +20,7 @@
 	lgt = log --graph --simplify-by-decoration --pretty=format:'%d' --all
 	res = reset
 	st = status
+	rp = !git pull && git submodule update --remote --rebase
 	cat = !git archive --remote=$1 $2 $3 | tar -xOf - && : // $1=server, $2=branch, $3=file
 	wdiff = diff --word-diff=color --unified=1
 [pull]
