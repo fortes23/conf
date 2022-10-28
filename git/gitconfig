@@ -3,6 +3,9 @@
 	email = brais.fortes@gmail.com
 [diff]
 	tool = meld
+[diff "pandoc"]
+	textconv=pandoc --to=markdown
+	prompt=false
 [core]
 	editor = vim
 [credential]
@@ -18,6 +21,7 @@
 	res = reset
 	st = status
 	cat = !git archive --remote=$1 $2 $3 | tar -xOf - && : // $1=server, $2=branch, $3=file
+	wdiff = diff --word-diff=color --unified=1
 [pull]
 	rebase = true
 
